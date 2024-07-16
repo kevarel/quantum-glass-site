@@ -6,6 +6,7 @@ function App() {
     <>
       <h1>Quantum Glass</h1>
     </>
+  )
 }
 
 export default App
