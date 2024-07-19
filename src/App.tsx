@@ -1,15 +1,39 @@
-import './App.css'
+// src/App.tsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Orders from './pages/Orders';
 
-
-function App() {
+const App: React.FC = () => {
   return (
-    <>
-      <h1>Quantum Glass</h1>
+    <Router>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/orders">Orders</Link>
+          </li>
+        </ul>
+      </nav>
 
-      <h2>Professional Installation and Repairs</h2>
-      <h3>It Is Quality, Rather Then Quantity, That Matters.</h3>
-    </>
-  )
-}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/orders" element={<Orders />} />
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
