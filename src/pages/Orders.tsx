@@ -13,7 +13,7 @@ type OrderDetails = {
 const Orders: React.FC = () => {
     const url = import.meta.env.VITE_QUANTUM_GLASS_BOOKS;
     const authToken = import.meta.env.VITE_QUANTUM_GLASS_BOOKS_AUTH_TOKEN;
-
+    
     const [orderNumber, setOrderNumber] = useState('');
     const [billingFirstName, setBillingFirstName] = useState('');
     const [billingLastName, setBillingLastName] = useState('');
@@ -47,7 +47,6 @@ const Orders: React.FC = () => {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': authToken,
-                    // 'x-api-key': apiKey,
                 },
                 body: JSON.stringify({ query, variables }),
             });
@@ -99,8 +98,6 @@ const Orders: React.FC = () => {
                 </div>
                 <button type="submit">Submit</button>
             </form>
-
-            <h3>{url}</h3>
 
             {error && <p style={{ color: 'red' }}>{error}</p>}
             {orderDetails && (
