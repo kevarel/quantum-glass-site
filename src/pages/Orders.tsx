@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
 
-const url = import.meta.env.QUANTUM_GLASS_BOOKS;
-
 type OrderDetails = {
     order_number: string;
     billing_zip: string;
@@ -13,8 +11,8 @@ type OrderDetails = {
 };
 
 const Orders: React.FC = () => {
-    // const url = import.meta.env.QUANTUM_GLASS_BOOKS;
-    const authToken = import.meta.env.QUANTUM_GLASS_BOOKS_AUTH_TOKEN;
+    const url = import.meta.env.VITE_QUANTUM_GLASS_BOOKS;
+    const authToken = import.meta.env.VITE_QUANTUM_GLASS_BOOKS_AUTH_TOKEN;
 
     const [orderNumber, setOrderNumber] = useState('');
     const [billingFirstName, setBillingFirstName] = useState('');
