@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 interface Order {
   order_number: string;
@@ -14,6 +15,7 @@ const Order: React.FC = () => {
   });
 
   const [orderPlaced, setOrderPlaced] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleOrderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setOrder({
@@ -22,10 +24,48 @@ const Order: React.FC = () => {
     });
   };
 
-  const handleOrderSubmit = (e: React.FormEvent) => {
+  const handleOrderSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Order submitted:', order);
-    setOrderPlaced(true);
+    setError(null);
+
+    const endpoint = 'https://dtgqtjl3grcvdkepiyvxa4wc5q.appsync-api.us-east-2.amazonaws.com/graphql';
+    const token = ''; 
+
+    const mutation = `
+      mutation CreateOrder($order: OrderInput!) {
+        createOrder(order: $order) {
+          order_number
+          billing_first_name
+          billing_last_name
+        }
+      }
+    `;
+
+    const variables = {
+      order: {
+        order_number: order.order_number,
+        billing_first_name: order.billing_first_name,
+        billing_last_name: order.billing_last_name
+      }
+    };
+
+    try {
+      const response = await axios.post(
+        endpoint,
+        { query: mutation, variables },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        }
+      );
+      console.log('Order submitted:', response.data);
+      setOrderPlaced(true);
+    } catch (error) {
+      console.error('Error submitting order:', error);
+      setError('Failed to place order. Please try again.');
+    }
   };
 
   return (
@@ -49,6 +89,7 @@ const Order: React.FC = () => {
           </label>
           <br />
           <button type="submit">Enviar Pedido</button>
+          {error && <p style={{ color: 'red' }}>{error}</p>}
         </form>
       ) : (
         <div>
