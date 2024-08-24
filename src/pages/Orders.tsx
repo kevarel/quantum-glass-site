@@ -118,6 +118,10 @@ const Orders: React.FC = () => {
                     </div>
                 </div>
             )}
+
+            {/* <button onClick={handlePayNow} disabled={loading}>
+                {loading ? 'Processing...' : 'Pay Now'}
+            </button> */}
         </div>
     );
 };

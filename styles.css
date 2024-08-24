@@ -1,0 +1,189 @@
+.desktop-boarder {
+    position: relative;
+    width: 1440px;
+    height: 1565px;
+    background: #FFFFFF;
+    margin: 0 auto; /* Centers the div horizontally */
+}
+
+.landing-image {
+    position: absolute;
+    opacity: 75%;
+    width: 100%; /* Ensure it fills the width of the container */
+    height: 600px; /* Maintain aspect ratio */
+    left: 0;
+    top: 0;
+    object-fit: cover; /* Cover the entire container while preserving aspect ratio */
+    object-position: center; /* Center the image within the container */
+    z-index: 0;
+
+    background: url(landing_page_image.png);
+}
+
+.landing-company-name {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 0.5%;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.2; /* Adjusted for better spacing */
+    color: #FFFFFF;
+
+    /* Adding text shadow for individual letter glow */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8), 
+                 -2px -2px 6px rgba(0, 0, 0, 0.8);
+                 
+    /* Optional: No background needed if you want just the glowing text effect */
+    display: inline-block; /* Ensures the text remains centered */
+}
+
+.landing-company-quote {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 900; /* Extra bold */
+    font-size: 36px; /* Adjust the size as needed */
+    color: #000000; /* Bold black text */
+    
+    /* White glowing effect */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                 0 0 20px rgba(255, 255, 255, 0.6),
+                 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+.landing-company-sub-quote {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 18%; /* Adjust this to position the sub-quote below the main quote */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Inter', sans-serif;
+    font-style: italic; /* Italicized for accent */
+    font-weight: 500; /* Slightly lighter than the main quote */
+    font-size: 24px; /* Smaller than the main quote */
+    color: #333333; /* A softer black or dark gray */
+    
+    /* Subtle white glowing effect */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 
+                 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.landing-nav {
+    position: absolute;
+    top: 10px; /* Adjust based on where you want the buttons vertically */
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Distribute buttons to the far left and right */
+    padding: 0 20px; /* Optional: padding for better alignment */
+    z-index: 1; /* Ensure it appears above the image */
+}
+
+.nav-button {
+    padding: 10px 20px;
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    border: 2px solid #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #fbecff; /* Light pink background on hover */
+    color: #000000; /* Dark text color on hover for contrast */
+    border-color: #f5d3ff; /* Matching border color on hover */
+}
+
+.book-now-button {
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding for button size */
+    border: 2px solid #FFFFFF; /* Solid white border for better visibility */
+    text-align: center;
+    text-decoration: none; /* Remove underline from the link */
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px; /* Adjust font size as needed */
+    color: #FFFFFF; /* White text color for high contrast */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background for better contrast */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+
+    /* Centering the button */
+    position: absolute;
+    top: 30%; /* 25% padding from the top of the container */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the button horizontally and vertically */
+}
+
+.book-now-button:hover {
+    background-color: #fbecff; /* Light pink background on hover */
+    color: #000000; /* Dark text color on hover for contrast */
+    border-color: #f5d3ff; /* Matching border color on hover */
+}
+
+.section-one {
+    display: flex;
+    width: 100%;
+    padding: 20px; /* Optional padding for left and right sides */
+    position: absolute; /* Make sure it stays within the desktop-boarder */
+    top: 35%; /* Move the section below the landing image */
+    left: 0;
+    transform: translateY(100%); /* Ensure it aligns below the landing image */
+}
+
+.section-one-title {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: -15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 900; /* Extra bold */
+    font-size: 36px; /* Adjust the size as needed */
+    color: #AD8C8C; /* Bold black text */
+}
+
+.left-side, .right-side {
+    flex: 1; /* Ensures both columns take equal space */
+    padding: 20px; /* Optional padding inside columns */
+}
+
+.left-side {
+    border-right: 1px solid #ddd; /* Optional border to separate columns */
+}
+
+.text-content {
+    left: 50px;
+    max-width: 600px; /* Adjust max-width as needed */
+    margin: 0 auto; /* Center content inside the left column */
+}
+
+h1, h3 {
+    margin-bottom: 10px; /* Spacing below headings */
+}
+
+p {
+    margin-bottom: 20px; /* Spacing below paragraphs */
+}
+
+.section-two {
+    display: flex;
+    width: 100%;
+    padding: 20px; /* Optional padding for left and right sides */
+    position: absolute; /* Make sure it stays within the desktop-boarder */
+    top: 55%; /* Move the section below the landing image */
+    left: 0;
+    transform: translateY(100%); /* Ensure it aligns below the landing image */
+}
