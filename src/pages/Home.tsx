@@ -34,22 +34,6 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* <section className="section-two">
-        <div className="section-one-title">Reviews</div>
-        <div className="left-side">
-          <div className="text-content">
-            <h3>Need Glass Service, Repair, Replacement or Installation?</h3>
-            <p>At Quantum Glass, we are committed to providing homeowners with the highest quality home glass repair, residential glass replacement and installation services.</p>
-          </div>
-        </div>
-        <div className="right-side">
-          <div className="text-content">
-            <br />
-            <h1>Customer Satisfaction Guaranteed!</h1>
-          </div>
-        </div>
-      </section> */}
     </div>
   );
 };
