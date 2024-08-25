@@ -13,16 +13,16 @@ body {
 /* Gallery container styling */
 .gallery-boarder {
     width: 100%;
-    max-width: 1200px; /* Adjust based on design */
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px; /* Top and bottom padding */
+    padding: 20px;
 }
 
 /* Gallery structure styling */
 .gallery-structure {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px; /* Space between images */
+    gap: 20px;
 }
 
 /* Individual gallery image styling */
@@ -38,19 +38,54 @@ body {
 
 /* Hover effect for images */
 .gallery:hover {
-    transform: scale(1.05); /* Slight zoom effect */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow effect */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive design */
+/* Responsive design for tablets */
 @media (max-width: 768px) {
+    .gallery-boarder {
+        padding: 15px;
+    }
+
     .gallery-structure {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
 
+/* Responsive design for mobile devices */
 @media (max-width: 480px) {
+    .gallery-boarder {
+        padding: 10px;
+    }
+
     .gallery-structure {
         grid-template-columns: 1fr;
+        gap: 10px; /* Reduced gap for smaller screens */
     }
+
+    .gallery {
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 100vw; /* Ensure the image takes up the full viewport width */
+        height: auto;
+    }
+    
+    .nav-button {
+        display: none;
+    }
+    
+    /* Hide all buttons */
+    button,
+    .nav-button,
+    .navigation-button {
+        display: none;
+    }
+    
+    /* Hide all links that act as navigation buttons */
+    a.nav-link,
+    a.navigation-link {
+        display: none;
+    }
+    
 }

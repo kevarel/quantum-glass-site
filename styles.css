@@ -187,3 +187,74 @@ p {
     left: 0;
     transform: translateY(100%); /* Ensure it aligns below the landing image */
 }
+
+@media only screen and (max-width: 768px) {
+    .desktop-boarder {
+        width: 100%;
+        height: auto;
+    }
+
+    .landing-image {
+        height: 300px; /* Reduce the height of the landing image */
+    }
+
+    .landing-company-name {
+        font-size: 24px; /* Smaller font size for the company name */
+        top: 65px; /* Adjust top position */
+    }
+
+    .landing-company-quote {
+        font-size: 20px; /* Smaller font size for the company quote */
+        top: 130px;
+    }
+
+    .landing-company-sub-quote {
+        font-size: 16px; /* Smaller font size for the sub-quote */
+        top: 170px;
+    }
+
+    .landing-nav {
+        flex-direction: column; /* Stack navigation buttons vertically */
+        align-items: center;
+        top: 70px; /* Adjust position */
+        padding: 10px;
+    }
+
+    .nav-button {
+        width: 100%;
+        margin: 5px 0; /* Add some space between buttons */
+        text-align: center;
+    }
+
+    .book-now-button {
+        font-size: 16px; /* Adjust font size */
+        top: 240px; /* Adjust position */
+        padding: 10px 15px; /* Adjust padding */
+    }
+
+    .section-one, .section-two {
+        flex-direction: column; /* Stack sections vertically */
+        padding: 20px;
+        top: auto; /* Remove the absolute top positioning */
+        position: relative; /* Position relative to the flow */
+        transform: none; /* Remove the transform property */
+    }
+
+    .left-side, .right-side {
+        padding: 370px 0; /* Adjust padding */
+        border-right: none; /* Remove border */
+        border-bottom: 1px solid #ddd; /* Add bottom border */
+    }
+
+    .section-one-title {
+        font-size: 28px; /* Smaller font size for the title */
+        top: 330px; /* Adjust title position */
+        left: 50%;
+        transform: translate(-50%, 0); /* Center the title */
+    }
+
+    .text-content {
+        max-width: 100%; /* Full width on mobile */
+        padding: 10px;
+    }
+}
