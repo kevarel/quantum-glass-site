@@ -1,15 +1,18 @@
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Gallery from './pages/Gallery';
 
 
-function App() {
+const App: React.FC = () => {
   return (
-    <>
-      <h1>Quantum Glass</h1>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/gallery" element={<Gallery />} />
+      </Routes>
+    </Router>
+  );
+};
 
-      <h2>Professional Installation and Repairs</h2>
-      <h3>It Is Quality, Rather Then Quantity, That Matters.</h3>
-    </>
-  )
-}
-
-export default App
+export default App;
