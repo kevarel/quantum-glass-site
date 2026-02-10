@@ -16,8 +16,6 @@
     object-fit: cover; /* Cover the entire container while preserving aspect ratio */
     object-position: center; /* Center the image within the container */
     z-index: 0;
-
-    background: url(landing_page_image.png);
 }
 
 .landing-company-name {
