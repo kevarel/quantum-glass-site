@@ -3,6 +3,11 @@
   publish = "dist"
 
 [[redirects]]
+  from = "/gallery-1"
+  to = "/gallery-1.html"
+  status = 200
+
+[[redirects]]
   from = "/gallery-1.html"
   to = "/gallery-1.html"
   status = 200
