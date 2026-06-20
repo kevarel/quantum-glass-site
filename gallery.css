@@ -5,34 +5,21 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
+/* Gallery page wrapper */
+.gallery-page {
     background-color: #f4f4f4;
+    min-height: 50vh;
+    padding-top: 20px;
+    padding-bottom: 40px;
 }
 
-/* Gallery nav styling */
-.gallery-nav {
-    display: flex;
-    gap: 16px;
-    padding: 16px 24px;
-    background-color: #1a1a1a;
-    align-items: center;
-}
-
-.gallery-nav-button {
-    color: #fff;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
-}
-
-.gallery-nav-button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+/* Gallery title */
+.gallery-title {
+    font-family: 'Chunkfive', arial, helvetica, sans-serif;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 24px;
+    color: #1b1b1b;
 }
 
 /* Gallery container styling */
@@ -86,35 +73,17 @@ body {
 
     .gallery-structure {
         grid-template-columns: 1fr;
-        gap: 10px; /* Reduced gap for smaller screens */
+        gap: 10px;
     }
 
     .gallery {
         border-radius: 5px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        width: 100vw; /* Ensure the image takes up the full viewport width */
+        width: 100%;
         height: auto;
     }
-    
-    .gallery-nav {
-        display: none;
-    }
 
-    .nav-button {
-        display: none;
+    .gallery-title {
+        font-size: 24px;
     }
-    
-    /* Hide all buttons */
-    button,
-    .nav-button,
-    .navigation-button {
-        display: none;
-    }
-    
-    /* Hide all links that act as navigation buttons */
-    a.nav-link,
-    a.navigation-link {
-        display: none;
-    }
-    
 }
