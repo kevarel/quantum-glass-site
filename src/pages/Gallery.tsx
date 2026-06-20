@@ -5,9 +5,9 @@ import '../../gallery.css';
 const Gallery: React.FC = () => {
   return (
     <div>
-      <nav className="landing-nav">
-        <Link to="/" className="nav-button">Home</Link>
-        <Link to="/gallery" className="nav-button">Gallery</Link>
+      <nav className="gallery-nav">
+        <Link to="/" className="gallery-nav-button">Home</Link>
+        <Link to="/gallery" className="gallery-nav-button">Gallery</Link>
       </nav>
       <div className="gallery-boarder">
         <div className="gallery-structure">
