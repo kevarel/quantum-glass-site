@@ -4134,21 +4134,19 @@
     </div>
   </div>
   <script>
-    // Only load GoDaddy widget scripts on the homepage
-    if (window.location.pathname === '/') {
-      window.__gdScriptsLoaded = true;
-      var scripts = [
-        '//img1.wsimg.com/blobby/go/1c97997a-3f75-484e-952c-67c0fc21cf51/gpub/4871411f5c276ba1/script.js',
-        '//img1.wsimg.com/ceph-p3-01/website-builder-data-prod/static/widgets/UX.4.43.14.js',
-        '//img1.wsimg.com/blobby/go/1c97997a-3f75-484e-952c-67c0fc21cf51/gpub/561dae1ecbdf288e/script.js'
-      ];
-      scripts.forEach(function(src) {
-        var s = document.createElement('script');
-        s.src = src;
-        s.crossOrigin = '';
-        document.body.appendChild(s);
-      });
-    }
+    // Load GoDaddy widget scripts (needed for nav and chat button on all pages)
+    window.__gdScriptsLoaded = true;
+    var scripts = [
+      '//img1.wsimg.com/blobby/go/1c97997a-3f75-484e-952c-67c0fc21cf51/gpub/4871411f5c276ba1/script.js',
+      '//img1.wsimg.com/ceph-p3-01/website-builder-data-prod/static/widgets/UX.4.43.14.js',
+      '//img1.wsimg.com/blobby/go/1c97997a-3f75-484e-952c-67c0fc21cf51/gpub/561dae1ecbdf288e/script.js'
+    ];
+    scripts.forEach(function(src) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.crossOrigin = '';
+      document.body.appendChild(s);
+    });
   </script>
   <script defer src="//img1.wsimg.com/traffic-assets/js/tccl.min.js" crossorigin></script>
   <script type="module" src="/src/main.tsx"></script>
