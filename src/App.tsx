@@ -81,6 +81,15 @@ const PageManager: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         e.preventDefault();
         navigate(href);
         window.scrollTo(0, 0);
+
+        // Close the mobile navigation drawer if it's open
+        const drawer = document.querySelector('[data-ux="NavigationDrawer"]') as HTMLElement;
+        if (drawer) {
+          drawer.style.transform = '';
+          drawer.style.visibility = 'hidden';
+        }
+        // Remove body scroll lock that the drawer may have added
+        document.body.classList.remove('disable-scroll');
       }
     };
 
