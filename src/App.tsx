@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect, useLayoutEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import Gallery from './pages/Gallery';
 
 // IDs of the homepage content widgets (between header and footer)
@@ -10,6 +10,60 @@ const HOMEPAGE_CONTENT_IDS = [
   '50ceea4e-b037-4f30-9385-6278ad56d8f4',  // faq
   '275bfadc-59bb-450f-b214-e1a08392a295',  // contact
 ];
+
+function hideHomepageContent() {
+  HOMEPAGE_CONTENT_IDS.forEach(id => {
+    const elements = document.querySelectorAll(`[id="${id}"].widget`);
+    elements.forEach(el => {
+      (el as HTMLElement).style.display = 'none';
+    });
+  });
+
+  const headerSection = document.querySelector('[data-aid="HEADER_SECTION"]') as HTMLElement;
+  if (headerSection) {
+    headerSection.style.minHeight = '0';
+    headerSection.style.paddingTop = '0';
+    headerSection.style.paddingBottom = '0';
+  }
+
+  const heroBlocks = document.querySelectorAll('[data-ux="Hero"]');
+  heroBlocks.forEach(el => {
+    (el as HTMLElement).style.display = 'none';
+  });
+
+  const bgImage = document.querySelector('[data-aid="BACKGROUND_IMAGE_RENDERED"]') as HTMLElement;
+  if (bgImage) {
+    bgImage.style.minHeight = '0';
+    bgImage.style.height = 'auto';
+  }
+}
+
+function showHomepageContent() {
+  HOMEPAGE_CONTENT_IDS.forEach(id => {
+    const elements = document.querySelectorAll(`[id="${id}"].widget`);
+    elements.forEach(el => {
+      (el as HTMLElement).style.display = '';
+    });
+  });
+
+  const headerSection = document.querySelector('[data-aid="HEADER_SECTION"]') as HTMLElement;
+  if (headerSection) {
+    headerSection.style.minHeight = '';
+    headerSection.style.paddingTop = '';
+    headerSection.style.paddingBottom = '';
+  }
+
+  const heroBlocks = document.querySelectorAll('[data-ux="Hero"]');
+  heroBlocks.forEach(el => {
+    (el as HTMLElement).style.display = '';
+  });
+
+  const bgImage = document.querySelector('[data-aid="BACKGROUND_IMAGE_RENDERED"]') as HTMLElement;
+  if (bgImage) {
+    bgImage.style.minHeight = '';
+    bgImage.style.height = '';
+  }
+}
 
 const PageManager: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
@@ -23,10 +77,19 @@ const PageManager: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       if (!anchor) return;
 
       const href = anchor.getAttribute('href');
-      if (href && (href === '/' || href === '/gallery-1' || href === '/gallery')) {
+      if (href && (href === '/' || href === '/gallery')) {
         e.preventDefault();
         navigate(href);
         window.scrollTo(0, 0);
+
+        // Close the mobile navigation drawer if it's open
+        const drawer = document.querySelector('[data-ux="NavigationDrawer"]') as HTMLElement;
+        if (drawer) {
+          drawer.style.transform = '';
+          drawer.style.visibility = 'hidden';
+        }
+        // Remove body scroll lock that the drawer may have added
+        document.body.classList.remove('disable-scroll');
       }
     };
 
@@ -34,47 +97,46 @@ const PageManager: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return () => document.removeEventListener('click', handleClick);
   }, [navigate]);
 
+  // useLayoutEffect fires synchronously before browser paint
+  useLayoutEffect(() => {
+    // Remove the early-hide style tag injected by the inline script
+    const routeHideStyle = document.getElementById('route-hide');
+    if (routeHideStyle) {
+      routeHideStyle.remove();
+    }
+
+    if (isHome) {
+      showHomepageContent();
+    } else {
+      hideHomepageContent();
+    }
+  }, [isHome]);
+
+  // Also set up a MutationObserver to catch content injected by GoDaddy scripts
   useEffect(() => {
-    // Show/hide homepage content sections
+    if (isHome) return;
+
+    // Hide again after a short delay to catch GoDaddy scripts that render late
+    const timer = setTimeout(() => {
+      hideHomepageContent();
+    }, 100);
+
+    // Watch for DOM changes that might re-show content
+    const observer = new MutationObserver(() => {
+      hideHomepageContent();
+    });
+
     HOMEPAGE_CONTENT_IDS.forEach(id => {
       const el = document.getElementById(id);
       if (el) {
-        el.style.display = isHome ? '' : 'none';
+        observer.observe(el, { childList: true, subtree: true });
       }
     });
 
-    // Hide the hero section (full-height background with tagline) on non-home pages
-    // but keep the nav bar visible
-    const headerSection = document.querySelector('[data-aid="HEADER_SECTION"]') as HTMLElement;
-    if (headerSection) {
-      if (isHome) {
-        headerSection.style.minHeight = '';
-        headerSection.style.paddingTop = '';
-        headerSection.style.paddingBottom = '';
-      } else {
-        headerSection.style.minHeight = '0';
-        headerSection.style.paddingTop = '0';
-        headerSection.style.paddingBottom = '0';
-      }
-    }
-
-    // Hide the hero text/button content on non-home pages
-    const heroBlocks = document.querySelectorAll('[data-ux="Hero"]');
-    heroBlocks.forEach(el => {
-      (el as HTMLElement).style.display = isHome ? '' : 'none';
-    });
-
-    // Hide/collapse the background image on non-home pages
-    const bgImage = document.querySelector('[data-aid="BACKGROUND_IMAGE_RENDERED"]') as HTMLElement;
-    if (bgImage) {
-      if (isHome) {
-        bgImage.style.minHeight = '';
-        bgImage.style.height = '';
-      } else {
-        bgImage.style.minHeight = '0';
-        bgImage.style.height = 'auto';
-      }
-    }
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
   }, [isHome]);
 
   return <>{children}</>;
@@ -87,7 +149,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={null} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/gallery-1" element={<Gallery />} />
+          <Route path="/gallery-1" element={<Navigate to="/gallery" replace />} />
         </Routes>
       </PageManager>
     </Router>

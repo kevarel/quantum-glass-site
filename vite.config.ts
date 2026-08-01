@@ -7,6 +7,7 @@ export default defineConfig({
   define: {
     'process.env': process.env,
   },
+  appType: 'spa',
   server: {
     proxy: {
       '/oauth/token': {
