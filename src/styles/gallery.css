@@ -43,10 +43,10 @@
 /* Individual gallery image styling */
 .gallery {
     width: 100%;
-    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     display: block;
     border-radius: 8px;
-    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -139,7 +139,6 @@
         border-radius: 5px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         width: 100%;
-        height: auto;
     }
 
     .gallery-title {
