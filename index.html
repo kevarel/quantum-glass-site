@@ -418,7 +418,6 @@
   —————————————————————————————-
   */
     @import url('//img1.wsimg.com/blobby/go/font/Chunkfive/chunkfive.css');
-    @import url('');
     /*
   This license can also be found at this permalink: https://www.fontsquirrel.com/license/indigo
   
@@ -3009,6 +3008,33 @@
 </head>
 
 <body class="x  x-fonts-chunkfive">
+  <script>
+    // Immediately hide homepage content on non-home routes to prevent flash
+    (function() {
+      var path = window.location.pathname;
+      if (path !== '/') {
+        var ids = [
+          '8e905d65-1d69-4f8d-9d0d-442ab09e15a5',
+          'e0ccb4ec-232d-4193-b034-0e2170a2f746',
+          '5fe55a79-ebc4-42e3-b11a-c0d831b082f7',
+          '50ceea4e-b037-4f30-9385-6278ad56d8f4',
+          '275bfadc-59bb-450f-b214-e1a08392a295'
+        ];
+        var style = document.createElement('style');
+        style.id = 'route-hide';
+        var css = '[data-aid="HEADER_SECTION"]{min-height:0!important;padding-top:0!important;padding-bottom:0!important;}';
+        css += '[data-ux="Hero"]{display:none!important;}';
+        css += '[data-aid="BACKGROUND_IMAGE_RENDERED"]{min-height:0!important;height:auto!important;}';
+        for (var i = 0; i < ids.length; i++) {
+          css += '#' + ids[i] + '{display:none!important;}';
+          css += '[id="' + ids[i] + '"]{display:none!important;}';
+        }
+        css += '.widget-about,.widget-content,.widget-social,.widget-faq,.widget-contact{display:none!important;}';
+        style.textContent = css;
+        document.head.appendChild(style);
+      }
+    })();
+  </script>
   <div id="layout-1-c-97997-a-3-f-75-484-e-952-c-67-c-0-fc-21-cf-51"
     class="layout layout-layout layout-layout-layout-13 locale-en-US lang-en">
     <div data-ux="Page" id="page-51243"
@@ -3117,7 +3143,7 @@
                                           class="x-el x-el-div nav-item c1-1 c1-2 c1-2r c1-25 c1-4e c1-4f c1-n c1-3m c1-2q c1-b c1-c c1-4g c1-d c1-e c1-f c1-g">
                                           <a rel="" role="link" aria-haspopup="false" data-ux="NavLink" target=""
                                             data-page="5bcbee5a-91c0-449c-b140-cd3c2ce55da4"
-                                            data-edit-interactive="true" href="/gallery-1" data-typography="NavAlpha"
+                                            data-edit-interactive="true" href="/gallery" data-typography="NavAlpha"
                                             class="x-el x-el-a c1-4h c1-3a c1-2d c1-2e c1-2f c1-4i c1-2g c1-4q c1-4r c1-4s c1-4t c1-2v c1-2t c1-2s c1-2u c1-b c1-2l c1-4j c1-4u c1-4k c1-4l c1-4m c1-4n c1-4o c1-4p"
                                             data-tccl="ux2.HEADER.header9.Nav.Default.Link.Default.51261.click,click">Gallery</a>
                                         </div>
@@ -3177,7 +3203,7 @@
                                           class="x-el x-el-div nav-item c1-1 c1-2 c1-2r c1-25 c1-4e c1-4f c1-n c1-3m c1-2q c1-b c1-c c1-4g c1-d c1-e c1-f c1-g">
                                           <a rel="" role="link" aria-haspopup="false" data-ux="NavLink" target=""
                                             data-page="5bcbee5a-91c0-449c-b140-cd3c2ce55da4"
-                                            data-edit-interactive="true" href="/gallery-1" data-typography="NavAlpha"
+                                            data-edit-interactive="true" href="/gallery" data-typography="NavAlpha"
                                             class="x-el x-el-a c1-4h c1-3a c1-2d c1-2e c1-2f c1-4i c1-2g c1-4q c1-4r c1-4s c1-4t c1-2v c1-2t c1-2s c1-2u c1-b c1-2l c1-4j c1-4u c1-4k c1-4l c1-4m c1-4n c1-4o c1-4p"
                                             data-tccl="ux2.HEADER.header9.Nav.Default.Link.Default.51267.click,click">Gallery</a>
                                         </div>
@@ -3217,7 +3243,7 @@
                                               <a rel="" role="link" aria-haspopup="false" data-ux="NavMoreMenuLink"
                                                 target="" data-page="5bcbee5a-91c0-449c-b140-cd3c2ce55da4"
                                                 data-edit-interactive="true" aria-labelledby="more-51265"
-                                                href="/gallery-1" data-typography="NavAlpha"
+                                                href="/gallery" data-typography="NavAlpha"
                                                 class="x-el x-el-a c1-4h c1-3a c1-2d c1-2e c1-2f c1-2q c1-2g c1-5i c1-5j c1-5k c1-b c1-2l c1-4j c1-4u c1-4k c1-4l c1-4m c1-4n c1-4o c1-4p"
                                                 data-tccl="ux2.HEADER.header9.Nav.MoreMenu.Link.Default.51271.click,click">Gallery</a>
                                             </li>
@@ -3260,7 +3286,7 @@
                                   class="x-el x-el-li c1-1 c1-2 c1-6f c1-24 c1-4i c1-6g c1-6h c1-6i c1-b c1-c c1-5h c1-6j c1-d c1-e c1-f c1-g">
                                   <a rel="" role="link" aria-haspopup="false" data-ux="NavigationDrawerLink" target=""
                                     data-page="5bcbee5a-91c0-449c-b140-cd3c2ce55da4" data-edit-interactive="true"
-                                    data-close="true" href="/gallery-1" data-typography="NavBeta"
+                                    data-close="true" href="/gallery" data-typography="NavBeta"
                                     class="x-el x-el-a c1-1 c1-2 c1-2d c1-2e c1-2f c1-p c1-2g c1-54 c1-55 c1-1u c1-1v c1-q c1-6k c1-6l c1-b c1-5v c1-6m c1-4u c1-6n c1-6o c1-6p c1-6q c1-6r c1-6s c1-6t"
                                     data-tccl="ux2.HEADER.header9.NavigationDrawer.Default.Link.Default.51273.click,click"><span>Gallery</span></a>
                                 </li>
@@ -4107,11 +4133,23 @@
       </div>
     </div>
   </div>
-  <script src="//img1.wsimg.com/blobby/go/1c97997a-3f75-484e-952c-67c0fc21cf51/gpub/4871411f5c276ba1/script.js"
-    crossorigin></script>
-  <script src="//img1.wsimg.com/ceph-p3-01/website-builder-data-prod/static/widgets/UX.4.43.14.js" crossorigin></script>
-  <script src="//img1.wsimg.com/blobby/go/1c97997a-3f75-484e-952c-67c0fc21cf51/gpub/561dae1ecbdf288e/script.js"
-    crossorigin></script>
+  <script>
+    // Only load GoDaddy widget scripts on the homepage
+    if (window.location.pathname === '/') {
+      window.__gdScriptsLoaded = true;
+      var scripts = [
+        '//img1.wsimg.com/blobby/go/1c97997a-3f75-484e-952c-67c0fc21cf51/gpub/4871411f5c276ba1/script.js',
+        '//img1.wsimg.com/ceph-p3-01/website-builder-data-prod/static/widgets/UX.4.43.14.js',
+        '//img1.wsimg.com/blobby/go/1c97997a-3f75-484e-952c-67c0fc21cf51/gpub/561dae1ecbdf288e/script.js'
+      ];
+      scripts.forEach(function(src) {
+        var s = document.createElement('script');
+        s.src = src;
+        s.crossOrigin = '';
+        document.body.appendChild(s);
+      });
+    }
+  </script>
   <script defer src="//img1.wsimg.com/traffic-assets/js/tccl.min.js" crossorigin></script>
   <script type="module" src="/src/main.tsx"></script>
 </body>

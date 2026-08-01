@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en-US">
 
 <head>
@@ -25,7 +25,7 @@
     href="//img1.wsimg.com/isteam/ip/1c97997a-3f75-484e-952c-67c0fc21cf51/545FACFE-0C42-4843-A313-30A7EC58176A.jpeg/:/rs=w:152,h:152,m" />
   <link rel="apple-touch-icon" sizes="180x180"
     href="//img1.wsimg.com/isteam/ip/1c97997a-3f75-484e-952c-67c0fc21cf51/545FACFE-0C42-4843-A313-30A7EC58176A.jpeg/:/rs=w:180,h:180,m" />
-  <meta property="og:url" content="https://quantumglassrepair.godaddysites.com/gallery-1" />
+  <meta property="og:url" content="https://quantumglassrepair.godaddysites.com/gallery" />
   <meta property="og:site_name" content="Quantum Glass Repair" />
   <meta property="og:title" content="Quantum Glass Repair" />
   <meta property="og:description" content="It Is Quality, Rather Then Quantity, That Matters." />
@@ -2355,7 +2355,7 @@
                                     class="x-el x-el-div nav-item c1-1 c1-2 c1-1v c1-18 c1-3i c1-3j c1-r c1-2q c1-1u c1-b c1-c c1-3k c1-d c1-e c1-f c1-g">
                                     <a rel="" role="link" aria-haspopup="false" data-ux="NavLinkActive" target=""
                                       data-page="5bcbee5a-91c0-449c-b140-cd3c2ce55da4" data-edit-interactive="true"
-                                      href="/gallery-1" data-typography="NavAlpha"
+                                      href="/gallery" data-typography="NavAlpha"
                                       class="x-el x-el-a c1-3l c1-2e c1-1g c1-1h c1-1i c1-3m c1-1j c1-b c1-1p c1-3r c1-2i c1-3t c1-3u c1-3v c1-3w c1-3x c1-3y"
                                       data-tccl="ux2.HEADER.header9.Nav.Default.Link.Active.125679.click,click">Gallery</a>
                                   </div>
@@ -2415,7 +2415,7 @@
                                     class="x-el x-el-div nav-item c1-1 c1-2 c1-1v c1-18 c1-3i c1-3j c1-r c1-2q c1-1u c1-b c1-c c1-3k c1-d c1-e c1-f c1-g">
                                     <a rel="" role="link" aria-haspopup="false" data-ux="NavLinkActive" target=""
                                       data-page="5bcbee5a-91c0-449c-b140-cd3c2ce55da4" data-edit-interactive="true"
-                                      href="/gallery-1" data-typography="NavAlpha"
+                                      href="/gallery" data-typography="NavAlpha"
                                       class="x-el x-el-a c1-3l c1-2e c1-1g c1-1h c1-1i c1-3m c1-1j c1-b c1-1p c1-3r c1-2i c1-3t c1-3u c1-3v c1-3w c1-3x c1-3y"
                                       data-tccl="ux2.HEADER.header9.Nav.Default.Link.Active.125685.click,click">Gallery</a>
                                   </div>
@@ -2452,7 +2452,7 @@
                                         class="x-el x-el-li c1-1 c1-2 c1-4j c1-17 c1-3m c1-4k c1-b c1-c c1-4l c1-d c1-e c1-f c1-g">
                                         <a rel="" role="link" aria-haspopup="false" data-ux="NavMoreMenuLinkActive"
                                           target="" data-page="5bcbee5a-91c0-449c-b140-cd3c2ce55da4"
-                                          data-edit-interactive="true" aria-labelledby="more-125683" href="/gallery-1"
+                                          data-edit-interactive="true" aria-labelledby="more-125683" href="/gallery"
                                           data-typography="NavAlpha"
                                           class="x-el x-el-a c1-3l c1-2e c1-1g c1-1h c1-1i c1-1u c1-1j c1-4m c1-4n c1-4o c1-b c1-1p c1-3r c1-2i c1-3t c1-3u c1-3v c1-3w c1-3x c1-3y"
                                           data-tccl="ux2.HEADER.header9.Nav.MoreMenu.Link.Active.125689.click,click">Gallery</a>
@@ -2495,7 +2495,7 @@
                             class="x-el x-el-li c1-1 c1-2 c1-5l c1-17 c1-3m c1-5m c1-5n c1-5o c1-b c1-c c1-4l c1-5p c1-d c1-e c1-f c1-g">
                             <a rel="" role="link" aria-haspopup="false" data-ux="NavigationDrawerLinkActive" target=""
                               data-page="5bcbee5a-91c0-449c-b140-cd3c2ce55da4" data-edit-interactive="true"
-                              data-close="true" href="/gallery-1" data-typography="NavBeta"
+                              data-close="true" href="/gallery" data-typography="NavBeta"
                               class="x-el x-el-a c1-1 c1-2 c1-1g c1-1h c1-1i c1-14 c1-1j c1-48 c1-49 c1-u c1-v c1-12 c1-5q c1-5r c1-b c1-51 c1-5s c1-2i c1-5t c1-5u c1-5v c1-5w c1-5x c1-5y c1-5z"
                               data-tccl="ux2.HEADER.header9.NavigationDrawer.Default.Link.Active.125691.click,click"><span>Gallery</span></a>
                           </li>
@@ -2959,4 +2959,4 @@
   <script defer src="//img1.wsimg.com/traffic-assets/js/tccl.min.js" crossorigin></script>
 </body>
 
-</html>
+</html> -->
